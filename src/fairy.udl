@@ -1,0 +1,60 @@
+namespace fairy {
+  [Throws=FairyError, Async]
+  Fairy create(HttpClient client, string path);
+};
+
+[Error]
+interface FairyError {
+  Api(string reason);
+};
+
+enum Method {
+  "Get",
+  "Post",
+  "Put",
+  "Patch",
+  "Delete",
+  "Head"
+};
+
+dictionary Request {
+  string uri;
+  bytes body;
+};
+
+dictionary Response {
+  u16 status;
+  bytes body;
+};
+
+[Trait, WithForeign]
+interface HttpClient {
+  [Throws=FairyError]
+  Response send(Request req);
+};
+
+enum AssetKind {
+  "Script",
+  "Styling",
+  "Unknown"
+};
+
+dictionary Asset {
+  AssetKind kind;
+  string file;
+};
+
+dictionary RenderResult {
+  string content;
+  sequence<Asset> assets;
+  sequence<string> head;
+};
+
+interface Fairy {
+  Renderer renderer(string? entrypoint);
+};
+
+interface Renderer {
+  [Throws=FairyError, Async]
+  RenderResult render(Request req);
+};

@@ -1,0 +1,21 @@
+[package]
+name = "fairy-python"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "fairy"
+crate-type = ["cdylib"]
+
+[dependencies]
+uniffi = { version = "0.28.0" }
+fairy-render = { git = "https://github.com/fairy-render/fairy-render" }
+fairy-vite = { git = "https://github.com/fairy-render/fairy-render" }
+reggie = { git = "https://github.com/fairy-render/reggie" }
+async-trait = { version = "0.1" }
+async-compat = { version = "0.2" }
+futures-executor = { version = "0.3" }
+
+[build-dependencies]
+uniffi = { version = "0.28.0", features = ["build"] }
