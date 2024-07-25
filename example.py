@@ -6,13 +6,13 @@ import urllib.request
 
 class Client(fairy.HttpClient):
   async def send(self, req):
+
     url  = urlparse(req.uri);
 
     if url.scheme == 'internal':
       return fairy.Response(status = 200, body = bytes('{"hello": "python world"}', 'utf8'))
     
     ret = urllib.request.urlopen(req.uri).read();
-
     return fairy.Response(status = 200, body = ret)
     
 
@@ -20,11 +20,11 @@ class Client(fairy.HttpClient):
 
 async def main():
 
-  app = await fairy.create(Client(), "../fairy-render/solid-config.json")
+  app = await fairy.create(Client(), "./example/config.json")
 
   renderer = app.renderer(None)
 
-  ret = await renderer.render(fairy.Request(uri = "/", body = bytes()))
+  ret = await renderer.render(fairy.Request(uri = "/subpage", body = bytes()))
 
 
   print(ret)

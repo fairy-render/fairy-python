@@ -1,5 +1,6 @@
 
 
 
-venv:
-  fish .venv/bin/activate.fish
+build-frontend:
+  cd example; pnpm build; pnpm print
+  

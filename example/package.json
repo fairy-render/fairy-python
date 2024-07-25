@@ -1,0 +1,19 @@
+{
+	"name": "solid-example",
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "fairy watch",
+		"build": "fairy build",
+		"print": "fairy print -o config.json"
+	},
+	"devDependencies": {
+		"@fairy-render/build": "0.0.3",
+		"typescript": "^5.0.2"
+	},
+	"dependencies": {
+		"@fairy-render/solid": "0.0.1",
+		"@solidjs/router": "^0.13.5",
+		"solid-js": "^1.8.1"
+	}
+}
