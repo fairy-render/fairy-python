@@ -2,5 +2,5 @@
 
 
 build-frontend:
-  cd example; pnpm build; pnpm print
+  cd example; pnpm i; pnpm build; pnpm print
   
