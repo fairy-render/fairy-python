@@ -525,7 +525,7 @@ dependencies = [
 [[package]]
 name = "fairy-render"
 version = "0.1.0"
-source = "git+https://github.com/fairy-render/fairy-render#329da28acbe65de9bf8d6c3272b17c79dbbfeb62"
+source = "git+https://github.com/fairy-render/fairy-render#6d6a2b6bcd42d8a3a793ae839567c0a22ed2cc8b"
 dependencies = [
  "futures-core",
  "klaver",
@@ -542,7 +542,7 @@ dependencies = [
 [[package]]
 name = "fairy-vite"
 version = "0.1.0"
-source = "git+https://github.com/fairy-render/fairy-render#329da28acbe65de9bf8d6c3272b17c79dbbfeb62"
+source = "git+https://github.com/fairy-render/fairy-render#6d6a2b6bcd42d8a3a793ae839567c0a22ed2cc8b"
 dependencies = [
  "fairy-render",
  "reggie",
