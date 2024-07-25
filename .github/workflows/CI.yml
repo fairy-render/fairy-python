@@ -53,8 +53,8 @@ jobs:
           sccache: "true"
           manylinux: auto
           before-script-linux: |
-            sudo apt-get update
-            sudo apt-get install -y patch
+            apt-get update
+            apt-get install -y patch
       - name: Upload wheels
         uses: actions/upload-artifact@v4
         with:
