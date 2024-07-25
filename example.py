@@ -35,7 +35,8 @@ if __name__ == "__main__":
   s = time.perf_counter()
   try:
     asyncio.run(main())
-  except:
+  except Exception as e:
+    print(e)
     print("Failed")
   elapsed = time.perf_counter() - s
   print(f"{__file__} executed in {elapsed:0.2f} seconds.")
