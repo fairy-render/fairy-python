@@ -44,7 +44,7 @@ jobs:
       - name: Install deps
         run: sudo apt-get install patch
       - name: Install python tools
-        run: pip install uniffi-bindgen
+        run: pip install uniffi-bindgen patchelf
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
@@ -52,6 +52,7 @@ jobs:
           args: --release --out dist --find-interpreter
           sccache: "true"
           manylinux: auto
+          before-script-linux: before.sh
       - name: Upload wheels
         uses: actions/upload-artifact@v4
         with:
