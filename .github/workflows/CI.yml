@@ -52,7 +52,7 @@ jobs:
           args: --release --out dist --find-interpreter
           sccache: "true"
           manylinux: auto
-          before-script-linux: before.sh
+          before-script-linux: workflows/before.sh
       - name: Upload wheels
         uses: actions/upload-artifact@v4
         with:
