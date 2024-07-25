@@ -43,6 +43,8 @@ jobs:
           python-version: 3.x
       - name: Install deps
         run: sudo apt-get install patch
+      - name: Install python tools
+        run: pip install uniffi-bindgen
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
