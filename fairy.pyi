@@ -39,5 +39,5 @@ class Response:
   body: bytes
 
 class HttpClient(Protocol):
-  def send(self) -> Response:
+  async def send(self, req: Request) -> Response:
     pass

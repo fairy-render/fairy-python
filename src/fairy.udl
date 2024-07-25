@@ -29,7 +29,7 @@ dictionary Response {
 
 [Trait, WithForeign]
 interface HttpClient {
-  [Throws=FairyError]
+  [Throws=FairyError, Async]
   Response send(Request req);
 };
 

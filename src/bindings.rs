@@ -1,10 +1,7 @@
-use core::fmt;
-use std::{future::Future, path::Path, pin::Pin, sync::Arc};
-
 use async_compat::Compat;
-use fairy_render::reggie::ResponseExt;
-use fairy_render::{quick::Quick, reggie::http::StatusCode};
+use core::fmt;
 use fairy_vite::{ViteConfig, ViteError};
+use std::{future::Future, path::Path, pin::Pin, sync::Arc};
 
 pub use fairy_vite::{Asset, AssetKind};
 
@@ -71,7 +68,7 @@ where
                 body: bytes.to_vec(),
             };
 
-            let resp = self.0.send(req).unwrap();
+            let resp = self.0.send(req).await.unwrap();
 
             Ok(reggie::Response::builder()
                 .status(resp.status)
@@ -164,7 +161,7 @@ pub struct RenderResult {
     pub head: Vec<String>,
 }
 
-// #[async_trait::async_trait]
+#[async_trait::async_trait]
 pub trait HttpClient: Send + Sync {
-    fn send(&self, req: Request) -> Result<Response, FairyError>;
+    async fn send(&self, req: Request) -> Result<Response, FairyError>;
 }
