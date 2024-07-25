@@ -26,8 +26,16 @@ async def main():
 
   ret = await renderer.render(fairy.Request(uri = "/subpage", body = bytes()))
 
+  print("Assets")
+  for asset in ret.assets:
+    print(f"  {asset.kind} at {asset.file}")
 
-  print(ret)
+  print("\nExtra head tags")
+  for head in ret.head:
+    print(f" {head}")
+
+  print("\nContent")
+  print(ret.content)
   
 
 if __name__ == "__main__":
