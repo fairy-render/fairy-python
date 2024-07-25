@@ -5,6 +5,8 @@
 
 Needs maturin, the rust compiler, virtualenv and pnpm for build the frontend example
 
+```sh
+
 npm i -g pnpm
 just build-frontend
 
@@ -17,3 +19,6 @@ source .venv/activate.fish
 
 maturin develop
 python example
+
+
+```
