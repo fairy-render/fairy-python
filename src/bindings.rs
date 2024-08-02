@@ -112,25 +112,30 @@ impl Fairy {
         Arc::new(Renderer {
             inner: self
                 .inner
-                .create_renderer(entry.as_ref().map(|m| m.as_str())),
+                .create_renderer(entry.as_ref().map(|m| m.as_str()))
+                .into(),
         })
     }
 }
 
 pub struct Renderer {
-    inner: fairy_vite::FairyRenderer,
+    inner: Option<fairy_vite::FairyRenderer>,
 }
 
 impl Renderer {
     pub async fn render(&self, request: Request) -> Result<RenderResult, FairyError> {
         Compat::new(async move {
+            let Some(renderer) = self.inner.as_ref() else {
+                return Err(ViteError::Render("renderer is closed".into()));
+            };
+
             let req = fairy_render::reggie::Request::builder()
                 .method(reggie::Method::GET)
                 .uri(request.uri)
                 .body(reggie::Body::from(request.body))
                 .unwrap();
 
-            let result = self.inner.render(req).await?;
+            let result = renderer.render(req).await?;
 
             Result::<_, fairy_vite::ViteError>::Ok(RenderResult {
                 content: String::from_utf8(result.content).unwrap(),
