@@ -8,10 +8,10 @@ class Client(fairy.HttpClient):
   async def send(self, req):
 
     url  = urlparse(req.uri);
-
+    # Fairy will redirect any relative urls to the internal scheme
     if url.scheme == 'internal':
       return fairy.Response(status = 200, body = bytes('{"hello": "python world"}', 'utf8'))
-    
+  
     ret = urllib.request.urlopen(req.uri).read();
     return fairy.Response(status = 200, body = ret)
     
@@ -20,10 +20,16 @@ class Client(fairy.HttpClient):
 
 async def main():
 
+  # Create renderpool. This should only be done one time for every application
   app = await fairy.create(Client(), "./example/config.json")
 
+  # Get a renderer
+  # If the frontend app has multiple entrypoints you have to
+  # specify which one to use. (eg main, admin).
+  # If ther's only one unamed entrypoint, you'll use None
   renderer = app.renderer(None)
 
+  # Send a request to the renderer  
   ret = await renderer.render(fairy.Request(uri = "/subpage", body = bytes()))
 
   print("Assets")
