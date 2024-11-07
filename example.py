@@ -19,6 +19,7 @@ class Client(fairy.HttpClient):
 
 
 async def main():
+  fairy.uniffi_set_event_loop(asyncio.get_running_loop())
 
   # Create renderpool. This should only be done one time for every application
   app = await fairy.create(Client(), "./example/config.json")
@@ -30,7 +31,7 @@ async def main():
   renderer = app.renderer(None)
 
   # Send a request to the renderer  
-  ret = await renderer.render(fairy.Request(uri = "/subpage", body = bytes()))
+  ret = await renderer.render(fairy.Request(uri = "http://localhost:3000/subpage", body = bytes()))
 
   print("Assets")
   for asset in ret.assets:
