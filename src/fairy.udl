@@ -1,4 +1,6 @@
 namespace fairy {
+  /// Create a new Fairy instance
+  /// You typically only want one of these in your app
   [Throws=FairyError, Async]
   Fairy create(HttpClient client, string path);
 };

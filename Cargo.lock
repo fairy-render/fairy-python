@@ -473,7 +473,7 @@ dependencies = [
 [[package]]
 name = "fairy-render"
 version = "0.1.0"
-source = "git+https://github.com/fairy-render/fairy-render#da79b72cb02481b8fcdb1cb34e18fa1fded963af"
+source = "git+https://github.com/fairy-render/fairy-render#f47c20affa04ea4917e0aed4cdc4407a816ac172"
 dependencies = [
  "futures",
  "klaver",
@@ -490,7 +490,7 @@ dependencies = [
 [[package]]
 name = "fairy-vite"
 version = "0.1.0"
-source = "git+https://github.com/fairy-render/fairy-render#da79b72cb02481b8fcdb1cb34e18fa1fded963af"
+source = "git+https://github.com/fairy-render/fairy-render#f47c20affa04ea4917e0aed4cdc4407a816ac172"
 dependencies = [
  "fairy-render",
  "reggie",
@@ -915,7 +915,7 @@ dependencies = [
 [[package]]
 name = "klaver"
 version = "0.2.0"
-source = "git+https://github.com/fairy-render/klaver#495e867499e335d3a8fc574218f7a2e74309387e"
+source = "git+https://github.com/fairy-render/klaver#a1038aebb2d225629eefb9d2e4a73c04e940c0cc"
 dependencies = [
  "deadpool",
  "futures",
@@ -929,7 +929,7 @@ dependencies = [
 [[package]]
 name = "klaver-wintercg"
 version = "0.1.0"
-source = "git+https://github.com/fairy-render/klaver#495e867499e335d3a8fc574218f7a2e74309387e"
+source = "git+https://github.com/fairy-render/klaver#a1038aebb2d225629eefb9d2e4a73c04e940c0cc"
 dependencies = [
  "async-stream",
  "async-trait",
@@ -1462,7 +1462,7 @@ dependencies = [
 [[package]]
 name = "rquickjs-modules"
 version = "0.1.0"
-source = "git+https://github.com/fairy-render/klaver#495e867499e335d3a8fc574218f7a2e74309387e"
+source = "git+https://github.com/fairy-render/klaver#a1038aebb2d225629eefb9d2e4a73c04e940c0cc"
 dependencies = [
  "oxc_resolver",
  "parking_lot",
@@ -1484,7 +1484,7 @@ dependencies = [
 [[package]]
 name = "rquickjs-util"
 version = "0.1.0"
-source = "git+https://github.com/fairy-render/klaver#495e867499e335d3a8fc574218f7a2e74309387e"
+source = "git+https://github.com/fairy-render/klaver#a1038aebb2d225629eefb9d2e4a73c04e940c0cc"
 dependencies = [
  "chrono",
  "futures",

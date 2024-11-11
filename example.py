@@ -19,7 +19,7 @@ class Client(fairy.HttpClient):
 
 
 async def main():
-  fairy.uniffi_set_event_loop(asyncio.get_running_loop())
+  # fairy.uniffi_set_event_loop(asyncio.get_running_loop())
 
   # Create renderpool. This should only be done one time for every application
   app = await fairy.create(Client(), "./example/config.json")
